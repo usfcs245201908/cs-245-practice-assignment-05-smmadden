@@ -24,9 +24,7 @@ public class QuickSort implements SortingAlgorithm {
                 swap(a, i, j);
             }
         }
-
         swap(a, i+1, right);
-
         return i + 1;
     }
 

@@ -13,26 +13,21 @@ public class QuickSort implements SortingAlgorithm {
     }
 
     private int partition(int[] a, int left, int right){
-        if(left < right){
-            int pivot = left;
-            int i = left+1;
-            int j = right;
+        int pivot = a[right];
+        int i = (left - 1);
 
-            while(i<j){
-                while(i < right && a[i] < a[pivot]){
-                    ++i;
-                }
-                while(j > i && a[j] > a[pivot]){
-                    --j;
-                }
-                if(i<j){
-                    swap(a, i, j);
-                }
+        for (int j = left; j < right; j++)
+        {
+            if (a[j] < pivot)
+            {
+                i++;
+                swap(a, i, j);
             }
-            swap(a, j, pivot);
-            return j;
         }
-        return left;
+
+        swap(a, i+1, right);
+
+        return i + 1;
     }
 
     private void swap(int[] a, int index1, int index2){
